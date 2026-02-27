@@ -24,15 +24,6 @@ public class Pagamento {
     public void setHorasExtras(int horasExtras) {
         this.horasExtras = horasExtras;
     }
-    public double calcularHoraExtra(){
-        double salario = funcionario.getCargo().getSalario();
-        int cargaHoraria = funcionario.getCargo().getCargaHoraria();
-
-        double valorHora = salario/cargaHoraria;
-        double valorHoraExtra = valorHora+(valorHora*0.5);
-        double horasExtrasCalculada = horasExtras*valorHoraExtra;
-        return horasExtrasCalculada;
-    }
 
     public double getImposto() {
         return imposto;
@@ -47,7 +38,7 @@ public class Pagamento {
 
     public double calcularPagamento(){
         Double salario = funcionario.getCargo().getSalario();
-        double horaExtra = calcularHoraExtra();
+        double horaExtra = HoraExtra.calcularHoraExtra(funcionario.getCargo(), horasExtras);
 
         salario+=horaExtra;
         double impostoCalculado = calcularimposto(salario);
@@ -55,22 +46,4 @@ public class Pagamento {
 
         return salario;
     }
-
-    public Pagamento(){
-        String nomeFuncionario = funcionario.getNome();
-        String nomeCargo = funcionario.getCargo().getNomeCargo();
-        double salarioBase = funcionario.getCargo().getSalario();
-        int cargaHoraria = funcionario.getCargo().getCargaHoraria();
-        double horaExtra = calcularHoraExtra();
-        double pagamento = calcularPagamento();
-
-        System.out.println(
-        "Nome do Funcionário: "+nomeFuncionario+
-        "\nCargo: "+nomeCargo+
-        "\nSalário Base: R$"+salarioBase+
-        "\nCarga Horária: "+cargaHoraria+"hrs"+
-        "\nHoras Extras: R$"+horaExtra+
-        "\nPagamento: R$"+pagamento);
-    }
-
 }

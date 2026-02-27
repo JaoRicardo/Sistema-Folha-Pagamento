@@ -1,13 +1,17 @@
 public class Funcionario {
     private String nome;
+    private String cpf;
     private Cargo cargo;
-    public Funcionario(String nome, Cargo cargo)
+
+
+
+    public Funcionario(String nome, Cargo cargo, String cpf)
     {
         this.nome = nome;
         this.cargo = cargo;
+        this.cpf = cpf;
     }
 
-    // NOME
     public String getNome() {
         return nome;
     }
@@ -15,11 +19,18 @@ public class Funcionario {
         this.nome = nome;
     }
 
-    // CARGO
     public Cargo getCargo() {
         return cargo;
     }
     public void setCargo(Cargo cargo) {
         this.cargo = cargo;
+    }
+
+    public String getCpf(){
+        return cpf;
+    }
+
+    public void setCpf(String cpf){
+        this.cpf = cpf;
     }
 }

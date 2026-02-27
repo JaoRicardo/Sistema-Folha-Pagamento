@@ -9,7 +9,6 @@ public class Cargo {
         this.salario = salario;
     }
 
-    // NOME DO CARGO
     public String getNomeCargo() {
         return nomeCargo;
     }
@@ -17,7 +16,6 @@ public class Cargo {
         this.nomeCargo = nomeCargo;
     }
 
-    // CARGA HORARIA
     public int getCargaHoraria() {
         return cargaHoraria;
     }
@@ -25,7 +23,6 @@ public class Cargo {
         this.cargaHoraria = cargaHoraria;
     }
 
-    // SALARIO
     public double getSalario() {
         return salario;
     }
