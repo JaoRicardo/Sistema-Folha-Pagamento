@@ -1,4 +1,4 @@
-public class Main {
+public class Principal {
     
     public static void main(String[] args) {
         Cargo Dois = new Cargo( 400,  "Dois",  2000);

@@ -56,7 +56,7 @@ public class Pagamento {
         return salario;
     }
 
-    public void Pagamento(){
+    public Pagamento(){
         String nomeFuncionario = funcionario.getNome();
         String nomeCargo = funcionario.getCargo().getNomeCargo();
         double salarioBase = funcionario.getCargo().getSalario();
