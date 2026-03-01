@@ -1,16 +1,11 @@
 public class ImprimirFolha {
-    private Pagamento pagamento;
 
-    public ImprimirFolha(Pagamento pagamento){
-        this.pagamento = pagamento;
-    }
-
-    public void Imprimir(){
+    public static void Imprimir(Pagamento pagamento){
         String nomeFuncionario = pagamento.getFuncionario().getNome();
         String nomeCargo = pagamento.getFuncionario().getCargo().getNomeCargo();
         double salarioBase = pagamento.getFuncionario().getCargo().getSalario();
         int cargaHoraria = pagamento.getFuncionario().getCargo().getCargaHoraria();
-        double dinheiro = pagamento.calcularPagamento();
+        double dinheiro = pagamento.pagar();
 
         System.out.println(
         "Nome do Funcionário: "+nomeFuncionario+

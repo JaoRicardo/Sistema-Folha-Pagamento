@@ -2,13 +2,11 @@
 
 public class Pagamento {
     private Funcionario funcionario;
-    private int horasExtras;
-    private double imposto;
+    private int horasTrabalhadas;
 
-    public Pagamento(Funcionario funcionario, int horasExtras, double imposto) {
+    public Pagamento(Funcionario funcionario, int horasTrabalhadas, double imposto) {
         this.funcionario = funcionario;
-        this.horasExtras = horasExtras;
-        this.imposto = imposto;
+        this.horasTrabalhadas = horasTrabalhadas;
     }
 
     public Funcionario getFuncionario() {
@@ -18,32 +16,26 @@ public class Pagamento {
         this.funcionario = funcionario;
     }
 
-    public int getHorasExtras() {
-        return horasExtras;
+    public int getHorasTrabalhadas() {
+        return horasTrabalhadas;
     }
-    public void setHorasExtras(int horasExtras) {
-        this.horasExtras = horasExtras;
-    }
-
-    public double getImposto() {
-        return imposto;
-    }
-    public void setImposto(double imposto) {
-        this.imposto = imposto;
-    }
-    public double calcularimposto(double salario){
-        double impostoCalculado = salario*imposto;
-        return impostoCalculado;
+    public void setHorasTrabalhadas(int horasTrabalhadas) {
+        this.horasTrabalhadas = horasTrabalhadas;
     }
 
-    public double calcularPagamento(){
-        Double salario = funcionario.getCargo().getSalario();
-        double horaExtra = HoraExtra.calcularHoraExtra(funcionario.getCargo(), horasExtras);
 
-        salario+=horaExtra;
-        double impostoCalculado = calcularimposto(salario);
-        salario-=impostoCalculado;
+    public double pagar(){
+
+        double salario = CalculoHorasTrabalhadas.CalculoHoras(funcionario.getCargo(), horasTrabalhadas);
+        salario = Imposto.DescontoImposto(salario);
 
         return salario;
+        // Double salario = funcionario.getCargo().getSalario();
+        // double horaExtra = HoraExtra.calcularHoraExtra(funcionario.getCargo(), horasExtras);
+
+        // salario+=horaExtra;
+        // double impostoCalculado = calcularimposto(salario);
+        // salario-=impostoCalculado;
+
     }
 }

@@ -4,9 +4,7 @@ public class HoraExtra {
         double salario = cargo.getSalario();
         int cargaHoraria = cargo.getCargaHoraria();
 
-        double valorHora = salario/cargaHoraria;
-        double valorHoraExtra = valorHora+(valorHora*0.5);
-        double horasExtrasCalculada = horaExtra*valorHoraExtra;
+        double horasExtrasCalculada = ((salario/cargaHoraria)*1.5)*horaExtra;
         return horasExtrasCalculada;
     }
 }
