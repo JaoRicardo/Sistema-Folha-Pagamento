@@ -4,7 +4,7 @@ public class Principal {
         Cargo Dois = new Cargo( 400,  "Dois",  2000);
         Funcionario Teste = new Funcionario("Teste", Dois);
         
-        Pagamento pagamento = new Pagamento(Teste, 400, 0.10);
+        Pagamento pagamento = new Pagamento(Teste, 400);
         ImprimirFolha.Imprimir(pagamento);
 
         

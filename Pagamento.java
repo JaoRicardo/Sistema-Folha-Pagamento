@@ -4,7 +4,7 @@ public class Pagamento {
     private Funcionario funcionario;
     private int horasTrabalhadas;
 
-    public Pagamento(Funcionario funcionario, int horasTrabalhadas, double imposto) {
+    public Pagamento(Funcionario funcionario, int horasTrabalhadas) {
         this.funcionario = funcionario;
         this.horasTrabalhadas = horasTrabalhadas;
     }
