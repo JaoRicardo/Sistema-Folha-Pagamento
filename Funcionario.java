@@ -1,26 +1,17 @@
 public class Funcionario {
-    private String nome;
-    private Cargo cargo;
+    private Nome nome;
+    private ContratoTrabalho contrato;
 
-
-
-    public Funcionario(String nome, Cargo cargo)
-    {
+    public Funcionario(Nome nome, ContratoTrabalho contrato) {
         this.nome = nome;
-        this.cargo = cargo;
+        this.contrato = contrato;
     }
 
-    public String getNome() {
-        return nome;
-    }
-    public void setNome(String nome) {
-        this.nome = nome;
+    public Dinheiro processarSalarioBruto(Horas horasTrabalhadas) {
+        return contrato.calcularRemuneracao(horasTrabalhadas);
     }
 
-    public Cargo getCargo() {
-        return cargo;
-    }
-    public void setCargo(Cargo cargo) {
-        this.cargo = cargo;
+    public void registrarDados(ImpressoraDeFolha impressora, Dinheiro totalPago) {
+        contrato.registrarDados(impressora, this.nome, totalPago);
     }
 }

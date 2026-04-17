@@ -1,41 +1,19 @@
-
-
 public class Pagamento {
     private Funcionario funcionario;
-    private int horasTrabalhadas;
+    private Horas horasTrabalhadas;
+    private RegraImposto regraImposto;
 
-    public Pagamento(Funcionario funcionario, int horasTrabalhadas) {
+    public Pagamento(Funcionario funcionario, Horas horasTrabalhadas, RegraImposto regraImposto) {
         this.funcionario = funcionario;
         this.horasTrabalhadas = horasTrabalhadas;
+        this.regraImposto = regraImposto;
     }
 
-    public Funcionario getFuncionario() {
-        return funcionario;
-    }
-    public void setFuncionario(Funcionario funcionario) {
-        this.funcionario = funcionario;
-    }
-
-    public int getHorasTrabalhadas() {
-        return horasTrabalhadas;
-    }
-    public void setHorasTrabalhadas(int horasTrabalhadas) {
-        this.horasTrabalhadas = horasTrabalhadas;
-    }
-
-
-    public double pagar(){
-
-        double salario = CalculoHorasTrabalhadas.CalculoHoras(funcionario.getCargo(), horasTrabalhadas);
-        salario = Imposto.DescontoImposto(salario);
-
-        return salario;
-        // Double salario = funcionario.getCargo().getSalario();
-        // double horaExtra = HoraExtra.calcularHoraExtra(funcionario.getCargo(), horasExtras);
-
-        // salario+=horaExtra;
-        // double impostoCalculado = calcularimposto(salario);
-        // salario-=impostoCalculado;
-
+    public void efetuarPagamento(ImpressoraDeFolha impressora) {
+        Dinheiro salarioBruto = funcionario.processarSalarioBruto(horasTrabalhadas);
+        Dinheiro impostoASerPago = regraImposto.calcularDesconto(salarioBruto);
+        Dinheiro salarioLiquido = salarioBruto.subtrair(impostoASerPago);
+        
+        funcionario.registrarDados(impressora, salarioLiquido);
     }
 }
