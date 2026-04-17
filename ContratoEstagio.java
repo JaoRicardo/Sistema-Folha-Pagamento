@@ -17,8 +17,8 @@ public class ContratoEstagio implements ContratoTrabalho {
             Horas faltas = cargaHoraria.subtrair(horasTrabalhadas);
             Dinheiro desconto = regraDesconto.calcularDesconto(bolsa, cargaHoraria, faltas);
             return bolsa.subtrair(desconto);
+            // Não recebe extra
         }
-        // Estagiário não rebece hora extra pelo fato da lei
         return bolsa;
     }
 
